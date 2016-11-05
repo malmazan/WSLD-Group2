@@ -1,0 +1,132 @@
+[
+  {
+    "op": "core/column-addition",
+    "description": "Create column Tube Line/s at index 1 based on column Station using expression grel:forEach(cell.cross(\"London TubeLines\",\"From Station\"),r,r.cells[\"Tube Line\"].value).join(\"|\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Tube Line/s",
+    "columnInsertIndex": 1,
+    "baseColumnName": "Station",
+    "expression": "grel:forEach(cell.cross(\"London TubeLines\",\"From Station\"),r,r.cells[\"Tube Line\"].value).join(\"|\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column To Station/s at index 1 based on column Station using expression grel:forEach(cell.cross(\"London TubeLines\",\"From Station\"),r,r.cells[\"To Station\"].value).join(\" | \") + \" | \" + forEach(cell.cross(\"London TubeLines\",\"To Station\"),r,r.cells[\"From Station\"].value).join(\" | \")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "To Station/s",
+    "columnInsertIndex": 1,
+    "baseColumnName": "Station",
+    "expression": "grel:forEach(cell.cross(\"London TubeLines\",\"From Station\"),r,r.cells[\"To Station\"].value).join(\" | \") + \" | \" + forEach(cell.cross(\"London TubeLines\",\"To Station\"),r,r.cells[\"From Station\"].value).join(\" | \")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": " | ",
+                "l": " | "
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "To Station/s",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "To Station/s"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "description": "Split multi-valued cells in column To Station/s",
+    "columnName": "To Station/s",
+    "keyColumnName": "Station",
+    "separator": "|",
+    "mode": "plain"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "description": "Split multi-valued cells in column Tube Line/s",
+    "columnName": "Tube Line/s",
+    "keyColumnName": "Station",
+    "separator": "|",
+    "mode": "plain"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Station to Estacion",
+    "oldColumnName": "Station",
+    "newColumnName": "Estacion"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column To Station/s to Estaciones Adyacentes",
+    "oldColumnName": "To Station/s",
+    "newColumnName": "Estaciones Adyacentes"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Tube Line/s to Linea",
+    "oldColumnName": "Tube Line/s",
+    "newColumnName": "Linea"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column OS X to Coordenada X",
+    "oldColumnName": "OS X",
+    "newColumnName": "Coordenada X"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column OS Y to Coordenada Y",
+    "oldColumnName": "OS Y",
+    "newColumnName": "Coordenada Y"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Zone to Zona",
+    "oldColumnName": "Zone",
+    "newColumnName": "Zona"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Latitude to Latitud",
+    "oldColumnName": "Latitude",
+    "newColumnName": "Latitud"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Longitude to Longitud",
+    "oldColumnName": "Longitude",
+    "newColumnName": "Longitud"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Postcode to Codigo Postal",
+    "oldColumnName": "Postcode",
+    "newColumnName": "Codigo Postal"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Estacion to Nombre_Estacion",
+    "oldColumnName": "Estacion",
+    "newColumnName": "Nombre_Estacion"
+  }
+]
