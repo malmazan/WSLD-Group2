@@ -44,6 +44,9 @@
         <DataProperty IRI="#tieneParadasAdyacentes"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#tieneSentido"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#tieneX"/>
     </Declaration>
     <Declaration>
@@ -78,11 +81,11 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#tieneLatitud"/>
-        <Class IRI="#parada"/>
+        <Class IRI="#parada_metro"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#tieneLongitud"/>
-        <Class IRI="#parada"/>
+        <Class IRI="#parada_metro"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#tieneNombre"/>
@@ -91,6 +94,10 @@
     <DataPropertyDomain>
         <DataProperty IRI="#tieneParadasAdyacentes"/>
         <Class IRI="#parada_metro"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tieneSentido"/>
+        <Class IRI="#parada_bus"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#tieneX"/>
@@ -185,6 +192,28 @@
     <DataPropertyRange>
         <DataProperty IRI="#tieneParadasAdyacentes"/>
         <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneSentido"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneSentido"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneSentido"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">360</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#tieneX"/>
