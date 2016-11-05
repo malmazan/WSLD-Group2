@@ -9,4 +9,4 @@ las líneas de metro has sido unidos al csv de la estaciones de metro. Esto se h
    Con esta hemos añadido a cada fila de las estaciones su estaciones adyacentes. En el csv final hay estaciones adyacentes repetidas pues
    en este metro de londres hay estaciones pertenecientes a varias lineas.
 Nuestro csv de estaciones posee a su vez muchas estaciones que pertenecen a un ámbito diferente del metro propiamente dicho y cuyo atributo
-linea y estaciones adyacentes estaban imcompletos. Han sido eliminados del del csv mediante el uso de una faceta.
+linea y estaciones adyacentes estaban incompletos. Han sido eliminados del csv mediante el uso de una faceta y la selección de las columnas oportunas aunque esto no queda reflejado en el json.
