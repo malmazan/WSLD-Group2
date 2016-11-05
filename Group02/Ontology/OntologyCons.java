@@ -132,6 +132,7 @@ public class OntologyCons {
 		OWLDataProperty tieneZona = createDatatypeProperty("tieneZona");
 		OWLDataProperty tieneCodigoPostal = createDatatypeProperty("tieneCodigoPostal");
 		OWLDataProperty tieneParadasAdayacentes = createDatatypeProperty("tieneParadasAdyacentes");
+		OWLDataProperty tieneSentido = createDatatypeProperty("tieneSentido");
 		
 		/* Declaramos las propiedaes */
 		OWLDeclarationAxiom tieneDec = declareProperty(tiene);
@@ -146,6 +147,7 @@ public class OntologyCons {
 		OWLDeclarationAxiom tieneZonaDec = declareProperty(tieneZona);
 		OWLDeclarationAxiom tieneCodigoPostalDec = declareProperty(tieneCodigoPostal);
 		OWLDeclarationAxiom tieneParadasAdayacentesDec = declareProperty(tieneParadasAdayacentes);
+		OWLDeclarationAxiom tieneSentidoDec = declareProperty(tieneSentido);
 	
 
 		/*Establecemos los dominios*/
@@ -153,14 +155,17 @@ public class OntologyCons {
 		
 		OWLDataPropertyDomainAxiom tieneXDomain = declareDataDomain(tieneX, parada);
 		OWLDataPropertyDomainAxiom tieneYDomain = declareDataDomain(tieneY, parada);
-		OWLDataPropertyDomainAxiom tieneLatitudDomain = declareDataDomain(tieneLatitud, parada);
-		OWLDataPropertyDomainAxiom tieneLongitudDomain = declareDataDomain(tieneLongitud, parada);
 		OWLDataPropertyDomainAxiom tieneNombreDomain = declareDataDomain(tieneNombre, parada);
-		OWLDataPropertyDomainAxiom tieneCodigoDeParadaDomain = declareDataDomain(tieneCodigoDeParada, parada_bus);
-		OWLDataPropertyDomainAxiom tieneAreaParadaDomain = declareDataDomain(tieneAreaParada, parada_bus);
+		
+		OWLDataPropertyDomainAxiom tieneLatitudDomain = declareDataDomain(tieneLatitud, parada_metro);
+		OWLDataPropertyDomainAxiom tieneLongitudDomain = declareDataDomain(tieneLongitud, parada_metro);
 		OWLDataPropertyDomainAxiom tieneZonaDomain = declareDataDomain(tieneZona, parada_metro);
 		OWLDataPropertyDomainAxiom tieneCodigoPostaldomain = declareDataDomain(tieneCodigoPostal, parada_metro);
 		OWLDataPropertyDomainAxiom tieneParadasAdayacentesDomain = declareDataDomain(tieneParadasAdayacentes, parada_metro);
+		
+		OWLDataPropertyDomainAxiom tieneCodigoDeParadaDomain = declareDataDomain(tieneCodigoDeParada, parada_bus);
+		OWLDataPropertyDomainAxiom tieneAreaParadaDomain = declareDataDomain(tieneAreaParada, parada_bus);
+		OWLDataPropertyDomainAxiom tieneSentidoDomain = declareDataDomain(tieneSentido, parada_bus);
 		
 		/*rango*/
 		OWLLiteral minX = df.getOWLLiteral("462,000.000");
@@ -183,6 +188,9 @@ public class OntologyCons {
 		OWLDatatypeRestriction paradaMaxRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral(47000));
 		OWLDatatypeRestriction paradaMinRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral(99000));
 		
+		OWLDatatypeRestriction sentidoMaxRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral(360));
+		OWLDatatypeRestriction sentidoMinRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral(0));
+		
 		
 	
 		
@@ -196,6 +204,7 @@ public class OntologyCons {
 		OWLDataPropertyRangeAxiom tieneZonaRange  = declareDataRange(tieneZona , integer_dt); // 1 -9 restriccion
 		OWLDataPropertyRangeAxiom tieneCodigoPostalRange  = declareDataRange(tieneCodigoPostal, string_dt); //metro string
 		OWLDataPropertyRangeAxiom tieneParadasAdayacentesRange  = declareDataRange(tieneParadasAdayacentes, string_dt); //string
+		OWLDataPropertyRangeAxiom tieneSentidoRange  = declareDataRange(tieneSentido, integer_dt); //string
 		
 		/*Reestricciones */
 		OWLDataPropertyRangeAxiom xMaxRestriction = declareRestrictionRange(tieneX, xMaxRes);
@@ -217,6 +226,9 @@ public class OntologyCons {
 		OWLDataPropertyRangeAxiom paradaMaxRestriccion = declareRestrictionRange(tieneCodigoDeParada, paradaMaxRes );
 		OWLDataPropertyRangeAxiom paradaMinRestriccion= declareRestrictionRange(tieneCodigoDeParada, paradaMinRes);
 		
+		OWLDataPropertyRangeAxiom sentidoMaxRestriccion = declareRestrictionRange(tieneSentido, sentidoMaxRes);
+		OWLDataPropertyRangeAxiom sentidoMinRestriccion = declareRestrictionRange(tieneSentido, sentidoMinRes);
+		
 		
 		applyChanges(m, o, decParada);
 		applyChanges(m, o, decParada_metro);
@@ -235,6 +247,8 @@ public class OntologyCons {
 		applyChanges(m, o, tieneZonaDec);
 		applyChanges(m, o, tieneCodigoPostalDec);
 		applyChanges(m, o, tieneParadasAdayacentesDec);
+		applyChanges(m, o, tieneSentidoDec);
+
 		
 		/*dominios*/
 		applyChanges(m, o, tieneDomain);
@@ -248,6 +262,8 @@ public class OntologyCons {
 		applyChanges(m, o, tieneZonaDomain);
 		applyChanges(m, o, tieneCodigoPostaldomain);
 		applyChanges(m, o, tieneParadasAdayacentesDomain);
+		applyChanges(m, o, tieneSentidoDomain);
+
 		/*rangos*/
 		
 		applyChanges(m, o, tieneXrange);
@@ -260,7 +276,8 @@ public class OntologyCons {
 		applyChanges(m, o, tieneZonaRange);
 		applyChanges(m, o, tieneCodigoPostalRange);
 		applyChanges(m, o, tieneParadasAdayacentesRange);
-		
+		applyChanges(m, o, tieneSentidoRange);
+
 		/*Restricciones*/
 		applyChanges(m, o, xMaxRestriction);
 		applyChanges(m, o, xMinRestriction);
@@ -279,6 +296,11 @@ public class OntologyCons {
 		
 		applyChanges(m, o, paradaMaxRestriccion);
 		applyChanges(m, o, paradaMinRestriccion);
+		
+		applyChanges(m, o, sentidoMaxRestriccion);
+		applyChanges(m, o, sentidoMinRestriccion);
+
+
 		
 		
 		
