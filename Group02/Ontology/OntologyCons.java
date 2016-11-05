@@ -123,6 +123,8 @@ public class OntologyCons {
 		/*creamos las dataproperty*/
 		OWLDataProperty tieneX = createDatatypeProperty("tieneX");
 		OWLDataProperty tieneY = createDatatypeProperty("tieneY");
+		OWLDataProperty tieneLatitud = createDatatypeProperty("tieneLatitud");
+		OWLDataProperty tieneLongitud = createDatatypeProperty("tieneLongitud");
 		OWLDataProperty tieneNombre = createDatatypeProperty("tieneNombre");
 		OWLDataProperty tieneCodigoDeParada = createDatatypeProperty("tieneCodigoDeParada");
 		/*heading*/
@@ -136,6 +138,8 @@ public class OntologyCons {
 		
 		OWLDeclarationAxiom tieneXDec = declareProperty(tieneX);
 		OWLDeclarationAxiom tieneYDec = declareProperty(tieneY);
+		OWLDeclarationAxiom tieneLatitudDec = declareProperty(tieneLatitud);
+		OWLDeclarationAxiom tieneLongitudDec = declareProperty(tieneLongitud);
 		OWLDeclarationAxiom tieneNombreDec = declareProperty(tieneNombre);
 		OWLDeclarationAxiom tieneCodigoDeParadaDec = declareProperty(tieneCodigoDeParada);
 		OWLDeclarationAxiom tieneAreaParadaDec = declareProperty(tieneAreaParada);
@@ -149,6 +153,8 @@ public class OntologyCons {
 		
 		OWLDataPropertyDomainAxiom tieneXDomain = declareDataDomain(tieneX, parada);
 		OWLDataPropertyDomainAxiom tieneYDomain = declareDataDomain(tieneY, parada);
+		OWLDataPropertyDomainAxiom tieneLatitudDomain = declareDataDomain(tieneLatitud, parada);
+		OWLDataPropertyDomainAxiom tieneLongitudDomain = declareDataDomain(tieneLongitud, parada);
 		OWLDataPropertyDomainAxiom tieneNombreDomain = declareDataDomain(tieneNombre, parada);
 		OWLDataPropertyDomainAxiom tieneCodigoDeParadaDomain = declareDataDomain(tieneCodigoDeParada, parada_bus);
 		OWLDataPropertyDomainAxiom tieneAreaParadaDomain = declareDataDomain(tieneAreaParada, parada_bus);
@@ -159,11 +165,17 @@ public class OntologyCons {
 		/*rango*/
 		OWLLiteral minX = df.getOWLLiteral("462,000.000");
 		OWLLiteral maxX = df.getOWLLiteral("562,000.000");
-		OWLDatatypeRestriction xMaxRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MAX_INCLUSIVE, maxX);
-		OWLDatatypeRestriction xMinRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MIN_INCLUSIVE, minX);
+		OWLDatatypeRestriction xMaxRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MAX_INCLUSIVE, maxX);
+		OWLDatatypeRestriction xMinRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MIN_INCLUSIVE, minX);
 		
-		OWLDatatypeRestriction yMaxRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral("208,000,00"));
-		OWLDatatypeRestriction yMinRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral("155,000,00"));
+		OWLDatatypeRestriction yMaxRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral("208,000,00"));
+		OWLDatatypeRestriction yMinRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral("155,000,00"));
+		
+		OWLDatatypeRestriction latMaxRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral("51,75"));
+		OWLDatatypeRestriction latMinRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral("51,28"));
+		
+		OWLDatatypeRestriction longMaxRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral("-0,33"));
+		OWLDatatypeRestriction longMinRes = df.getOWLDatatypeRestriction(double_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral("-0.61"));
 		
 		OWLDatatypeRestriction zonaMaxres = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MAX_INCLUSIVE, df.getOWLLiteral(9));
 		OWLDatatypeRestriction zonaMinRes = df.getOWLDatatypeRestriction(integer_dt, OWLFacet.MIN_INCLUSIVE, df.getOWLLiteral(1));
@@ -176,6 +188,8 @@ public class OntologyCons {
 		
 		OWLDataPropertyRangeAxiom tieneXrange  = declareDataRange(tieneX, integer_dt); //496,000.000 - 562,000.000
 		OWLDataPropertyRangeAxiom tieneYrange  = declareDataRange(tieneY, integer_dt); //155,000,00—208,000,00
+		OWLDataPropertyRangeAxiom tieneLatitudrange  = declareDataRange(tieneLatitud, double_dt); //51,28—51,75
+		OWLDataPropertyRangeAxiom tieneLongitudrange  = declareDataRange(tieneLongitud, double_dt); //-0,61—0,33
 		OWLDataPropertyRangeAxiom tieneNombreRange  = declareDataRange(tieneNombre, integer_dt); //String not null
 		OWLDataPropertyRangeAxiom tieneCodigoDeParadaRange  = declareDataRange(tieneCodigoDeParada, integer_dt); //47000-99000, puede ser null
 		OWLDataPropertyRangeAxiom tieneAreaParadaRange  = declareDataRange(tieneAreaParada, name_dt); // not unique, not empty.Sin standard
@@ -189,6 +203,12 @@ public class OntologyCons {
 		
 		OWLDataPropertyRangeAxiom yMaxRestriction = declareRestrictionRange(tieneY, yMaxRes);
 		OWLDataPropertyRangeAxiom yMinRestriction = declareRestrictionRange(tieneY, yMinRes);
+		
+		OWLDataPropertyRangeAxiom latMaxRestriction = declareRestrictionRange(tieneLatitud, latMaxRes);
+		OWLDataPropertyRangeAxiom latMinRestriction = declareRestrictionRange(tieneLatitud, latMinRes);
+		
+		OWLDataPropertyRangeAxiom longMaxRestriction = declareRestrictionRange(tieneLongitud, longMaxRes);
+		OWLDataPropertyRangeAxiom longMinRestriction = declareRestrictionRange(tieneLongitud, longMinRes);
 		
 		
 		OWLDataPropertyRangeAxiom zonaMaxRestriction = declareRestrictionRange(tieneZona, zonaMaxres );
@@ -207,6 +227,8 @@ public class OntologyCons {
 		applyChanges(m, o, tieneDec);
 		applyChanges(m, o, tieneXDec);
 		applyChanges(m, o, tieneYDec);
+		applyChanges(m, o, tieneLatitudDec);
+		applyChanges(m, o, tieneLongitudDec);
 		applyChanges(m, o, tieneNombreDec);
 		applyChanges(m, o, tieneCodigoDeParadaDec);
 		applyChanges(m, o, tieneAreaParadaDec);
@@ -218,6 +240,8 @@ public class OntologyCons {
 		applyChanges(m, o, tieneDomain);
 		applyChanges(m, o, tieneXDomain);
 		applyChanges(m, o, tieneYDomain);
+		applyChanges(m, o, tieneLatitudDomain);
+		applyChanges(m, o, tieneLongitudDomain);
 		applyChanges(m, o, tieneNombreDomain);
 		applyChanges(m, o, tieneCodigoDeParadaDomain);
 		applyChanges(m, o, tieneAreaParadaDomain);
@@ -228,6 +252,8 @@ public class OntologyCons {
 		
 		applyChanges(m, o, tieneXrange);
 		applyChanges(m, o, tieneYrange);
+		applyChanges(m, o, tieneLatitudrange);
+		applyChanges(m, o, tieneLongitudrange);
 		applyChanges(m, o, tieneNombreRange);
 		applyChanges(m, o, tieneCodigoDeParadaRange);
 		applyChanges(m, o, tieneAreaParadaRange);
@@ -241,6 +267,12 @@ public class OntologyCons {
 		
 		applyChanges(m, o, yMaxRestriction);
 		applyChanges(m, o, yMinRestriction);
+		
+		applyChanges(m, o, latMaxRestriction);
+		applyChanges(m, o, latMinRestriction);
+		
+		applyChanges(m, o, longMaxRestriction);
+		applyChanges(m, o, longMinRestriction);
 		
 		applyChanges(m, o, zonaMaxRestriction);
 		applyChanges(m, o, zonaMinRestriction);
