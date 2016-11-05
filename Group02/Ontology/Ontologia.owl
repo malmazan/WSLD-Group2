@@ -32,6 +32,12 @@
         <DataProperty IRI="#tieneCodigoPostal"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#tieneLatitud"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tieneLongitud"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#tieneNombre"/>
     </Declaration>
     <Declaration>
@@ -69,6 +75,14 @@
     <DataPropertyDomain>
         <DataProperty IRI="#tieneCodigoPostal"/>
         <Class IRI="#parada_metro"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tieneLatitud"/>
+        <Class IRI="#parada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tieneLongitud"/>
+        <Class IRI="#parada"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#tieneNombre"/>
@@ -121,6 +135,50 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#tieneLatitud"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneLatitud"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:double"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">51,28</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneLatitud"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:double"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">51,75</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneLongitud"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneLongitud"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:double"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">-0.61</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tieneLongitud"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:double"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">-0,33</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#tieneNombre"/>
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
@@ -135,7 +193,7 @@
     <DataPropertyRange>
         <DataProperty IRI="#tieneX"/>
         <DatatypeRestriction>
-            <Datatype abbreviatedIRI="xsd:integer"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
             <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
                 <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">462,000.000</Literal>
             </FacetRestriction>
@@ -144,7 +202,7 @@
     <DataPropertyRange>
         <DataProperty IRI="#tieneX"/>
         <DatatypeRestriction>
-            <Datatype abbreviatedIRI="xsd:integer"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
             <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
                 <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">562,000.000</Literal>
             </FacetRestriction>
@@ -157,7 +215,7 @@
     <DataPropertyRange>
         <DataProperty IRI="#tieneY"/>
         <DatatypeRestriction>
-            <Datatype abbreviatedIRI="xsd:integer"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
             <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
                 <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">155,000,00</Literal>
             </FacetRestriction>
@@ -166,7 +224,7 @@
     <DataPropertyRange>
         <DataProperty IRI="#tieneY"/>
         <DatatypeRestriction>
-            <Datatype abbreviatedIRI="xsd:integer"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
             <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
                 <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">208,000,00</Literal>
             </FacetRestriction>
