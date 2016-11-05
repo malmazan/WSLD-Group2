@@ -35,10 +35,7 @@
         <DataProperty IRI="#tieneNombre"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#tieneParadaAnterior"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#tieneParadaSiguiente"/>
+        <DataProperty IRI="#tieneParadasAdyacentes"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#tieneX"/>
@@ -78,11 +75,7 @@
         <Class IRI="#parada"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#tieneParadaAnterior"/>
-        <Class IRI="#parada_metro"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#tieneParadaSiguiente"/>
+        <DataProperty IRI="#tieneParadasAdyacentes"/>
         <Class IRI="#parada_metro"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -132,11 +125,7 @@
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#tieneParadaAnterior"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#tieneParadaSiguiente"/>
+        <DataProperty IRI="#tieneParadasAdyacentes"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
