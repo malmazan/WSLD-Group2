@@ -1,0 +1,80 @@
+
+
+    The resource naming strategy is not defined.
+*    The ontology file must be in the Turtle (.ttl) format.
+
+    *Right now the ontology only talks about stops. It should talk about
+more entities to enable linking.*
+*
+*
+**    In OWL, there are object properties (where value of the property
+is a resource) and datatype properties (where the value of the property
+is a string literal, usually typed). Most of the current object
+properties seem to be datatype properties.*
+
+  The pull request has conflicts. Make it again after updating your
+local repository.
+    There is no need to duplicate the files in different formats.
+    The resource naming strategy is not defined.
+    The analysis.html file is not correct HTML.
+    Don't be so strict with the datatype property ranges. Other values
+could appear and are possible out of those ranges.
+    Check that all class names start with capital letter.
+    The object property has no range.
+    *The ontology does not contain classes for other entities to be
+linked to.*
+    Verify that the class and property names used in the RDF data are
+the same as those used in the ontology.
+ *  You are mixing two different namespaces: paradas, bus and grupo2.*
+    Not every string with numbers is a number (e.g., tieneZona).
+
+En negrita he resaltado los puntos en los cuales tengo dudas. También
+creo que ha recibido una versión antigua puesto que en nuestro repo si
+esta la versión en turtle.
+(le dejo el repo de mi compañero donde subimos la practica
+ https://github.com/Ismmael/WSLD-Group2)
+
+Yo he mirado el repositorio de la asignatura, comprobad que está ahí.
+
+Independiente de eso, el primer punto en el que solo hablamos de paradas
+no se si lo entiendo, ¿significa que tenemos que buscar mas dataset y
+aumentar la cantidad de datos?, por ejemplo otros puntos de interés
+general y no solo las paradas.
+
+No me refiero explícitamente a que busquéis más conjuntos de datos; solo si hace falta.
+
+En la práctica tendréis que enlazar las entidades que aparecen en vuestro conjunto de datos con las mismas entidades tal y como están descritas en otros conjuntos de datos.
+
+Ahora mismo las únicas entidades de las que estáis hablando son las paradas. Va a ser muy difícil encontrar dichas paradas (ej. la parada del autobús 32 de Diego de León) en otros conjuntos de datos ya existentes.
+
+Por eso tenéis que ver cómo incluir en vuestro conjunto de datos otras entidades (calles, personas, etc.) que sí que puedan aparecer en otros datos como en DBpedia.
+
+En el segundo punto no si acabo de entender la diferencia entre un
+object property y las datatype property.
+
+Raul conoce Jorge
+
+Aquí "conoce" es una object property porque relaciona dos individuos.
+
+Raul seLlama "Raúl"
+
+Aquí "seLlama" es una datatype property porque relaciona un individuo y un valor.
+
+En el tercer punto, ¿significa que tengo que buscar clases predefinidas
+para mis clases en dbpedia? , por ejemplo para la clase parada asociarla
+a la parada de dbpedia.
+
+Está relacionado con el comentario de arriba de las paradas.
+
+En cuarto punto no lo entiendo.
+
+Se refiere a que no seguís una estrategia de nombrado de recursos uniforme. El patrón de las URIs es distinto para distintos recursos.
+
+Muchísimas gracias por su atención, agradecería realmente si puede
+aclararme esos puntos para poder mejorar la práctica.
+Un saludo,
+Jorge Amorós.
+
+Espero que haya ayudado. 
+
+Un saludo,
