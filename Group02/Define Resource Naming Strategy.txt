@@ -1,5 +1,5 @@
-Domain: http://www.semanticweb.org/webSemantica/gropo02
+Domain: http://www.semanticweb.org/webSemantica/gropo02/
 Ontological terms path: http://www.semanticweb.org/webSemantica/gropo02/vocabulary#
-Individuals path: http://www.semanticweb.org/webSemantica/gropo02/instances
+Individuals path: http://www.semanticweb.org/webSemantica/gropo02/
 Ontological terms pattern: http://www.semanticweb.org/webSemantica/gropo02/vocabulary#<term_name>
-Individuals pattern: http://www.semanticweb.org/webSemantica/gropo02/instances/<resource_type>/<resource_name>
+Individuals pattern: http://www.semanticweb.org/webSemantica/gropo02/<resource_type>/<resource_name>
